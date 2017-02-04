@@ -16,7 +16,7 @@ root@raspberrypi:/home/pi# nano /usr/local/bin/swapaxes.sh
 root@raspberrypi:/home/pi# chmod 777 /usr/local/bin/swapaxes.sh
       
 root@raspberrypi:/home/pi# apt-get install chromium-browser
-> nano /home/pi/.config/lxsession/LXDE-pi/autostart 
+nano /home/pi/.config/lxsession/LXDE-pi/autostart 
 
 > @xset s off
 
