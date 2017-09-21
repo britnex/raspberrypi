@@ -1,4 +1,5 @@
 #!/bin/sh
+# based on https://gist.github.com/mutability/6cc944bde1cf4f61908e316befd42bc4
 
 PREREQ=""
 prereqs()
