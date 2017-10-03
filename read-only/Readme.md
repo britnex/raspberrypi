@@ -14,18 +14,18 @@ Prerequisites:
 Make Filesystem Read-Only
 =========================
 ```
-sudo bash
 cd /tmp
 wget https://raw.githubusercontent.com/britnex/raspberrypi/master/read-only/install-experimental.sh -O install-experimental.sh
-bash install-experimental.sh
+pi@raspberrypi:/tmp $ sudo bash install-experimental.sh
 ```
 
 
 Check Read-Only Status
 -----------------------
+
 * Read only mode is enabled
 ```
-root@raspberrypi:/home/pi# df
+pi@raspberrypi:/home/pi $ sudo df
 Filesystem     1K-blocks    Used Available Use% Mounted on
 ...
 /dev/mmcblk0p2  15205520 4309620  10215392  30% /ro
@@ -35,7 +35,7 @@ overlay-rw        262144  115108    147036  44% /rw
 
 * Read only mode is disabled
 ```
-root@raspberrypi:/home/pi# df
+pi@raspberrypi:/home/pi $ sudo df
 Filesystem     1K-blocks    Used Available Use% Mounted on
 /dev/mmcblk0p2  15205520 4309756  10215256  30% /
 ```
@@ -43,6 +43,7 @@ Filesystem     1K-blocks    Used Available Use% Mounted on
 Make Filesystem Read-Write Again
 ================================
 
-sudo nano /boot/cmdline.txt
+* sudo nano /boot/cmdline.txt
 * change *overlay=yes* to *overlay=no*
 * Ctrl+o and Ctrl+x
+* sudo reboot
