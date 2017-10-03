@@ -20,8 +20,8 @@ pi@raspberrypi:/tmp $ sudo bash install-experimental.sh
 ```
 
 
-Check Read-Only Status
------------------------
+Check Status
+-------------
 
 * Read only mode is enabled
 ```
@@ -33,12 +33,6 @@ overlay-rw        262144  115108    147036  44% /rw
 ...
 ```
 
-* Read only mode is disabled
-```
-pi@raspberrypi:/home/pi $ sudo df
-Filesystem     1K-blocks    Used Available Use% Mounted on
-/dev/mmcblk0p2  15205520 4309756  10215256  30% /
-```
 
 Make Filesystem Read-Write Again
 ================================
@@ -47,3 +41,14 @@ Make Filesystem Read-Write Again
 * change *overlay=yes* to *overlay=no*
 * Ctrl+o and Ctrl+x
 * sudo reboot
+
+
+Check Status
+-------------
+
+* Read only mode is disabled
+```
+pi@raspberrypi:/home/pi $ sudo df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/mmcblk0p2  15205520 4309756  10215256  30% /
+```
