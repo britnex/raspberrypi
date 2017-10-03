@@ -1,5 +1,20 @@
 #!/bin/bash
 
+
+KERNEL=$(uname -r)
+
+VERSION=$(echo $KERNEL | cut -d. -f1)
+PATCHLEVEL=$(echo $KERNEL | cut -d. -f2)
+SUBLEVEL=$(echo $KERNEL | cut -d. -f3 | cut -d- -f1)
+
+KERNELVER=$(($VERSION*100000+1000*$PATCHLEVEL+$SUBLEVEL));
+
+if [ $KERNELVER -le 409040 ]; then 
+ echo "WARNING: kernel version not supported. >4.9.40 required" 1>&2
+ exit 0
+fi
+
+
 clear
 WELCOME="This script activates read-only filesystem overlay\n
 continue installation?"
