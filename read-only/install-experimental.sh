@@ -9,6 +9,11 @@ if [ $EUID -ne 0 ]; then
     exit 1
 fi
 
+if (cat /etc/issue | grep -v Raspbian) then
+    echo -e "$ERR ERROR: This script is only compatible with Raspbian Linux. $NC" 1>&2
+    exit 1
+fi
+
 KERNEL=$(uname -r)
 
 VERSION=$(echo $KERNEL | cut -d. -f1)
