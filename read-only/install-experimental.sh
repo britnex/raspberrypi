@@ -1,7 +1,11 @@
 #!/bin/bash
 
+ERR='\033[0;31m'
+INFO='\033[0;32m'
+NC='\033[0m' # No Color
+
 if [ $EUID -ne 0 ]; then
-    echo -e "ERROR: This script should be run as root" 1>&2
+    echo -e "$ERR ERROR: This script should be run as root. $NC" 1>&2
     exit 1
 fi
 
@@ -14,7 +18,7 @@ SUBLEVEL=$(echo $KERNEL | cut -d. -f3 | cut -d- -f1)
 KERNELVER=$(($VERSION*100000+1000*$PATCHLEVEL+$SUBLEVEL));
 
 if [ $KERNELVER -le 409040 ]; then 
- echo "WARNING: kernel version not supported. >4.9.40 required" 1>&2
+ echo -e "$ERR WARNING: kernel version not supported. >4.9.40 required $NC" 1>&2
  exit 0
 fi
 
